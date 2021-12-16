@@ -1,6 +1,8 @@
 package view;
 
 import domain.Menu;
+import domain.Order;
+import domain.OrderRepository;
 import domain.Table;
 
 import java.util.List;
@@ -36,5 +38,21 @@ public class OutputView {
             System.out.printf(TABLE_FORMAT, table);
         }
         System.out.println();
+    }
+
+    public static void printOrderedMenu(final List<Order> orders, int tableNumber) {
+        System.out.println("## 주문 내역");
+        System.out.println("메뉴 수량 금액");
+
+        for (Order order : orders) {
+            if (order.isSameTable(tableNumber)) {
+                System.out.println(order.getOrderedList());
+            }
+        }
+    }
+
+    public static void printTotalPayment(int pay) {
+        System.out.println("## 최종 결제할 금액");
+        System.out.println(Integer.toString(pay) + "원");
     }
 }

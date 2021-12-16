@@ -17,4 +17,16 @@ public class Menu {
     public String toString() {
         return category + " " + number + " - " + name + " : " + price + "원";
     }
+
+    public boolean isSameMenu(int menuNumber) {
+        return this.number == menuNumber;
+    }
+
+    public int getPrice() {
+        return this.price;
+    }
+
+    public String getName() {
+        return this.name;
+    }
 }
